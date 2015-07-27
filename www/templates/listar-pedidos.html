@@ -1,0 +1,27 @@
+<ion-view view-title="Listar Pedidos" name="listar-pedidos">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-gear-a" ui-sref="config"> Config</button>
+    </ion-nav-buttons>
+ 
+
+    <ion-content class="padding">
+        <ion-list class="list list-inset"   >
+
+            <div class="card" ng-hide="pedidos.length">
+                <div class="item item-dark light">
+                    <h4 class="title light">{{pedidos.length == 0?"Nenhum pedido cadastrado.":""}}</h4>
+                </div>
+            </div>
+            <ion-item class="item item-icon-left item-icon-right"  ng-repeat="pedido in pedidos"> 
+
+                <i class="icon ion-edit" ui-sref="pedidos.inserir.dados({id: pedido.id})"></i>
+                {{pedido.id}}  -  {{pedido.data | date:'dd/MM/yyyy' }}
+                <i class="icon ion-trash-a" ng-click="deletar(pedido)" ></i>
+            </ion-item>
+        </ion-list>
+
+        <button type="button" ng-hide="!pedidos.length" ng-click="exportar()" class="button button-block button-balanced" >
+            Exportar Pedidos
+        </button>
+    </ion-content>
+</ion-view>

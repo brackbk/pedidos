@@ -1,0 +1,21 @@
+
+      <button type="button" ng-hide="!value.length" ui-sref="pedidos.inserir.vencimento" class="button button-block button-positive" >
+        Proximo Passo
+    </button>  
+
+<button type="button" class="button button-block button-positive"  ng-click="showItems($event)">
+    Inserir Produto
+</button>
+
+<ion-list class="list list-inset">
+    <label class="item item-input item-stacked-label" ng-hide="!value.length">
+        <span class="input-label"><b>Total </b></span>
+        <p></p>{{ total | number : 2 }}</p>
+    </label> 
+    <ion-item class="item item-icon-left item-icon-right"  ng-repeat="prod in value"> 
+        <i class="icon ion-edit" ng-click="abrir(prod.id_iten)"></i>
+        {{prod.id}}  - {{prod.id_iten}} - {{prod.text}} 
+        <i class="icon ion-trash-a" ng-click="delete(prod)" ></i>
+    </ion-item>
+</ion-list>
+       

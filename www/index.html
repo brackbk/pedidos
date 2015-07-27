@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+        <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+        <preference name="EnableViewportScale" value="true"/>
+        <title></title>
+
+        <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="lib/jquery/dist/jquery.js"></script>  
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+        <script src="lib/ngCordova/dist/ng-cordova.js"></script> 
+        <script src="cordova.js"></script>
+
+
+        <script src="lib/angular-mocks/angular-mocks.js"></script>
+        <script src="lib/angular-touch/angular-touch.js"></script>
+        <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>  
+        <script src="lib/angular-animate/angular-animate.js"></script>
+        <script src="lib/angular-cookies/angular-cookies.js"></script>
+        <script src="lib/angular-route/angular-route.js"></script>
+        <script src="lib/angular-filter/dist/angular-filter.js"></script>
+        <script src="lib/angular-input-masks/angular-input-masks-standalone.min.js"></script>
+        <!-- your app's js -->
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/constants.js"></script>  
+        <script src="js/directives.js"></script>  
+        <script src="js/factory.js"></script>   
+        <script src="js/filter.js"></script>  
+        
+         <!-- controllers js -->
+        <script src="js/controllers/banco.js"></script>
+        <script src="js/controllers/config.js"></script>
+        <script src="js/controllers/home.js"></script>
+        <script src="js/controllers/InserirPedidos.js"></script>
+        <script src="js/controllers/listarPedidos.js"></script>
+        <script src="js/controllers/login.js"></script>
+        <script src="js/controllers/MostraProdutos.js"></script>
+        <script src="js/controllers/pedido.js"></script> 
+    </head>
+    <body ng-app="pedidos" >
+        <ion-nav-bar class="bar-dark"></ion-nav-bar>
+        <ion-nav-view > </ion-nav-view>
+    </body>
+</html>

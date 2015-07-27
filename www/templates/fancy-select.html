@@ -1,0 +1,12 @@
+ <ion-list>
+                  <ion-item class="item-text-wrap" ng-click="showItems($event)">
+                     <span class="input-label"><b>{{defaultText}}</b></span> 
+                      
+                      
+                    {{value ?value:''}} {{defaultText != text ?' - ' + text:''}} 
+                    <span class="item-note item-select">
+                      {{noteText}}
+                    </span>
+                      <small ng-show="!value" class="error-message">* Este campo é obrigatorio</small>
+                  </ion-item>
+</ion-list>

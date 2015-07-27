@@ -1,0 +1,13 @@
+    <button type="button" ng-hide="!formData.vencimento.length" ng-click="SetPedido(formData)"  class="button button-block button-positive" >
+         {{tipo=='i'?"Inserir Pedido":"Alterar Pedido"}}
+    </button> 
+<ion-list class="list list-inset">
+    <label class="item item-input item-stacked-label" ng-hide="!formData.produtos.length">
+        <span class="input-label"><b>Total Lucro Ganho</b></span>
+        <p></p>{{ getTotalLucro() | number : 2}} ({{ getTotalLucroCent() | number : 2}} %)</p>
+    </label> 
+    <ion-item class="item item-icon-left item-icon-right"  ng-repeat="prod in formData.produtos"> 
+
+        {{prod.id}}  - {{prod.id_iten}} - {{prod.text}} - ({{prod.lucro | number : 2}}) - {{prod.lucroCent  | number : 2}} %
+    </ion-item>
+</ion-list>

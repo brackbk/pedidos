@@ -1,0 +1,26 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+
+
+<ion-tabs class="tabs-icon-botton tabs-balanced tabs-background-dark tabs-color-blank">
+
+    <ion-tab title="Inicio" icon="ion-home" href="#/pedidos/">
+      <ion-nav-view name="pedidos-home"></ion-nav-view>
+        
+    </ion-tab>
+    
+    <ion-tab title="Inserir Pedidos" icon="ion-plus-circled"  href="/pedidos/inserir">
+      <ion-nav-view name="pedidos-inserir"></ion-nav-view>
+    </ion-tab>
+    
+    <ion-tab title="Listar Pedidos" icon="ion-android-list" href="#/pedidos/listar">
+      <ion-nav-view name="pedidos-listar"></ion-nav-view>
+    </ion-tab>
+    
+    <ion-tab title="Listar Pedidos" icon="ion-close-circled" ng-click="logout()">
+    </ion-tab>
+    
+</ion-tabs>

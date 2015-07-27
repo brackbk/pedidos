@@ -1,0 +1,130 @@
+
+<div class="list list-inset">
+    
+    
+    
+       <div class="item item-input item-stacked-label row"  >
+        <div class="col">
+            
+            <button ng-hide="tipo=='i'" type="button" ng-disabled="form.$invalid || formData.moneda == 0 || formData.parcero == 0 || formData.localparcero == 0 || formData.destino == 0" ui-sref="pedidos.inserir.itens" class="button button-block button-positive" >
+                Proximo Passo
+            </button>
+     
+<button type="button" ng-hide="tipo=='a'" ng-disabled="form.$invalid || formData.moneda == 0 || formData.parcero == 0 || formData.localparcero == 0 || formData.destino == 0" ui-sref="pedidos.inserir.itens" class="button button-block button-positive" >
+    Proximo Passo
+</button>
+        </div>
+        <div class="col">
+            <button type="button" ng-hide="tipo=='a'" ng-click="limparPed()" class="button button-block button-dark" >
+                Limpar
+            </button>
+            
+            
+                        <button type="button" ng-hide="tipo=='i'" ng-click="sairEditar()" class="button button-block button-dark" >
+                Cancelar Edição
+            </button>
+        </div>
+    </div> 
+    
+    
+    
+   
+
+<div class="item item-input row">
+    <div class="col">
+        <label>
+            <span class="input-label"><b>Num. Pedido</b></span>
+            <input type="number" id="npedido" ng-disabled="tipo=='a'" name="npedido" placeholder="Numero do Pedido" ng-model="formData.npedido" required  />
+            <small ng-show="form.npedido.$error.required" class="error-message">* Este campo é obrigatorio</small>
+            <small ng-show="form.npedido.$error.number" class="error-message">* Apenas Numero</small>  
+        </label> 
+    </div>
+    <div class="col"> 
+        <label>
+            <span class="input-label"><b>Fecha Pedido</b></span>
+            <input type="date" name="datapedido" id="datapedido" placeholder="Fecha do Pedido" ng-model="formData.datapedido" required />
+
+            <small ng-show="form.datapedido.$error.required" class="error-message">* Este campo é obrigatorio</small>
+        </label> 
+    </div>
+</div>
+
+<fancy-select
+              header-text="Moneda"
+              allow-empty='false'
+              value="formData.moneda"
+              text="lamoneda"
+              items="monedas"          
+              ng-model="formData.moneda"
+              > 
+</fancy-select>
+<fancy-select
+              header-text="Parcero"
+              allow-empty='false'
+              value="formData.parcero"
+              text="elparcero"
+              items="parceros"   
+              ng-change="change()"
+              ng-model="formData.parcero"
+              carrega="fparceros()"
+              buscando="formData.buscaparcero"
+
+              >
+</fancy-select>
+
+<fancy-select
+              header-text="Local del Parcero"
+              allow-empty='false'
+              value="formData.localparcero"
+              text="ellocalparcero"
+              items="localparceros"                   
+              ng-model="formData.localparcero"
+              >
+</fancy-select>               
+
+<div class="item item-input item-stacked-label row">
+    <div class="col">
+        <label>
+            <span class="input-label"><b>Dias P/ entrega</b></span>
+            <input type="number" min="1" ng-keyup="alteraData(formData.entregai)" id="entregai" name="entregai" placeholder="Dias para entrega." ng-model="formData.entregai" required>
+
+            <small ng-show="form.entregai.$error.required" class="error-message">* Este campo é obrigatorio</small>
+            <small ng-show="form.entregai.$error.number" class="error-message">* Apenas Numero</small>        
+        </label>
+    </div>
+    <div class="col">
+        <label>
+            <span class="input-label"><b>Fecha de Entrega</b></span>
+            <input type="date" id="entregaf" name="entregaf" placeholder="Fecha de entrega" ng-change="alteraDatai(formData.entregaf)"   ng-model="formData.entregaf" required />
+            <small ng-show="form.entregaf.$error.required" class="error-message">* Este campo é obrigatorio</small>  
+        </label>
+    </div>
+</div> 
+
+
+<label class="item item-input item-stacked-label">
+    <span class="input-label"><b>Fecha Base Del Precio</b></span>
+    <input type="date" id="dataprecio" name="dataprecio" placeholder="Fecha do Pedido" ng-model="formData.dataprecio" required>
+
+    <small ng-show="form.dataprecio.$error.required" class="error-message">* Este campo é obrigatorio</small>  
+</label> 
+
+
+<fancy-select
+              header-text="Destino"
+              allow-empty='false'
+              value="formData.destino"
+              text="eldestino"
+              items="destinos"         
+              ng-model="formData.destino"
+              >
+</fancy-select>
+
+
+<label class="item item-input item-stacked-label">
+    <span class="input-label"><b>E-mail</b></span>
+    <input type="email" id="email" name="email" placeholder="E-mail" ng-model="formData.email" >
+    <small ng-show="form.email.$error.email" class="error-message">* Este email não é valido</small>        
+</label> 
+
+</div>

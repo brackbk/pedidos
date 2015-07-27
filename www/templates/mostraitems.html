@@ -1,0 +1,57 @@
+<div class="list list-inset">
+    
+      <div class="item item-input item-stacked-label row">
+        <div class="col"> 
+     <button type="button" ng-disabled="form.$invalid || formData.produtos[testando].total == 0 || formData.produtos[testando].val_un == 0" ng-click="salvaritem(formData.produtos[testando])" class="button button-block button-positive" >
+        SALVAR
+    </button>              
+          </div>
+          
+        <div class="col"> 
+     <button type="button"  class="button button-block button-positive" ng-click="cancelaritem(formData.produtos[testando])" >
+        CANCELAR
+    </button>              
+          </div>
+    </div>
+
+    
+    <label class="item item-input item-stacked-label">
+        <span class="input-label"><b>Cod. Item</b></span>
+        <input type="number" id="cd_iten" name="cd_iten" placeholder="Numero do Iten" ng-model="formData.produtos[testando].id_iten" readonly />
+    </label> 
+
+
+    <label class="item item-input item-stacked-label">
+        <span class="input-label"><b>Descricion</b></span>
+        <input type="text" id="descricion" name="descricion" placeholder="Descricion do Iten" ng-model="formData.produtos[testando].text" readonly />
+    </label> 
+    <label class="item item-input item-stacked-label">
+        <span class="input-label"><b>Un</b></span>
+        <input type="text" id="un" name="un" placeholder="Unidade do iten" ng-model="formData.produtos[testando].un" readonly>  
+    </label>        
+
+    <div class="item item-input item-stacked-label row">
+        <div class="col">
+            <label>
+                <span class="input-label"><b>Cantidad</b></span>
+                <input type="number" id="cantidad" min="1" name="cantidad" ng-keyup="calcular(formData.produtos[testando].cantidad,formData.produtos[testando].val_un)" placeholder="Cantidad del Iten"  ng-model="formData.produtos[testando].cantidad" required />
+                <small ng-show="form.cantidad.$error.required" class="error-message">* Este campo é obrigatorio</small> 
+                <small ng-show="form.cantidad.$error.number" class="error-message">* Apenas Numero</small>     
+            </label>
+        </div>
+        <div class="col">
+            <label>
+                <span class="input-label"><b>Val Unitario</b></span>
+                <input type="text" id="val_un" name="val_un" ng-keyup="calcular(formData.produtos[testando].cantidad,formData.produtos[testando].val_un)" placeholder="Unidade do iten" ng-model="formData.produtos[testando].val_un" required  ui-number-mask="3">  
+                <small ng-show="form.val_un.$error.required" class="error-message">* Este campo é obrigatorio</small> 
+            </label>
+        </div>
+    </div> 
+
+    <label class="item item-input item-stacked-label">
+        <span class="input-label"><b>Total</b></span>
+        <input type="text" id="total" name="total" placeholder="Valor Total" ng-model="formData.produtos[testando].total"  ui-number-mask="2" readonly>  
+    </label> 
+    
+
+</div>
