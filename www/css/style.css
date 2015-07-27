@@ -1,0 +1,165 @@
+/* Empty. Add your own CSS if you like */
+
+
+fancy-select .list {
+  margin: -1px 0; }
+
+/* Items */
+/* line 13, ../scss/modules/_fancy-select.scss */
+.fancy-select-items {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  /* line 19, ../scss/modules/_fancy-select.scss */
+  .fancy-select-items .item {
+    overflow: hidden;
+    /* Clearfix */ }
+
+/* line 24, ../scss/modules/_fancy-select.scss */
+.fancy-select-items label p {
+  height: 32px;
+  line-height: 32px; }
+
+/* line 29, ../scss/modules/_fancy-select.scss */
+.fancy-select-icon {
+  float: left;
+  margin-right: 10px;
+  width: 30px;
+  text-align: center; }
+
+
+.input-label {
+  max-width: 230px !important;
+}
+
+
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+#form-views.ng-enter,
+#form-views.ng-leave      { position:absolute; left:30px; right:30px;
+    transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease; 
+}
+    
+/* enter animation */
+#form-views.ng-enter            { 
+    -webkit-animation:slideInRight 0.5s both ease;
+    -moz-animation:slideInRight 0.5s both ease;
+    animation:slideInRight 0.5s both ease; 
+}
+
+/* leave animation */
+#form-views.ng-leave            { 
+    -webkit-animation:slideOutLeft 0.5s both ease;
+    -moz-animation:slideOutLeft 0.5s both ease;
+    animation:slideOutLeft 0.5s both ease;   
+}
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {  
+    to      { -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+    to      { -webkit-transform: translateX(-200%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(200%); }
+    to      { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateX(200%); }
+    to      { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform:translateX(200%); }
+    to      { -webkit-transform: translateX(0); }
+}
+
+
+/* numbered buttons */
+#status-buttons                 { }
+#status-buttons a               {   width: 75px;
+  margin-top: 13px; color:#000; text-decoration: none; display:inline-block; font-size:11px; margin-right:-9px; text-align:center; text-transform:uppercase; }
+#status-buttons a:hover         { text-decoration:none; }
+
+/* we will style the span as the circled number */
+#status-buttons span            { background:#ccc; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px; 
+    border-radius:50%; }
+
+/* active buttons turn light green-blue*/
+#status-buttons a.active span   { background:#387ef5; color: #fff; }
+
+
+
+.card .item.item-input input, .list-inset .item.item-input input, .padding > .list .item.item-input input, .padding-horizontal > .list .item.item-input input {
+  padding-right: 15px;
+    
+    
+}
+.error-message{
+    color: red;
+    
+}
+
+
+
+
+
+.bar.bar-loading {
+  display: block;
+  height: 24px;
+  
+  /* starts right below a normal header */
+  top: 44px;
+  
+  /* make the text centered vertically and horizontally */
+  text-align: center;
+  padding: 0;
+  line-height: 24px;
+
+  /* transition 'sliding down' (check below)*/
+  -webkit-transition: 200ms all;
+}
+
+
+/* 
+ * make the content's top changes animate.
+ * might not always look good, but looks
+ * good when our loader is added & removed
+ */
+.has-header {
+  -webkit-transition: 200ms top;
+}
+.has-header.has-loading {
+  /* 44px (header) + 24px */
+  top: 68px;
+}
+
+/* make loading bar slide up/down */
+.bar-loading.ng-enter,
+.bar-loading.ng-leave.ng-leave-active {
+  height: 0;
+  border-width: 0px;
+}
+.bar-loading.ng-enter.ng-enter-active,
+.bar-loading.ng-leave {
+  height: 24px;
+  border-width: 1px;
+}
+
+div.footer-button a.button.button-full {
+    width:100%;
+    margin-top: 0;
+    font-weight:200;
+}
+.bar-positive .button.button-clear{
+    margin-top: -2px;
+}

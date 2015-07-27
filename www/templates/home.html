@@ -1,0 +1,25 @@
+<ion-view view-title="Pedidos" name="home">
+             <ion-nav-buttons side="left">
+              <button class="button button-icon icon ion-gear-a" ui-sref="config"> Config</button>
+            </ion-nav-buttons>
+        
+    <ion-content class="padding">
+      <div class="row"><div class="col text-center"> 
+          <h3 class="title">Bem vindo {{usuario}}</h3>
+          Este é seu sistema de Pedidos
+          <br>
+          
+        <button class="button button-block button-positive ion-plus-circled" ui-sref="pedidos.inserir.dados({reload: true})" >
+                  Inserir Pedidos
+     </button>
+          
+     <button class="button button-block button-positive ion-android-list"  ui-sref="pedidos.listar">
+                  Listar Pedidos
+     </button>      
+    
+          <br>
+        </div>    
+    </div>
+
+    </ion-content>
+</ion-view>

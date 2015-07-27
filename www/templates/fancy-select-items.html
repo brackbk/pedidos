@@ -1,0 +1,43 @@
+<ion-view class="fancy-select-items modal">
+    <ion-header-bar class="bar-positive">
+
+        <button ng-click="hideItems()" class="button button-positive button-icon ion-close"></button>
+
+        <h1 class="title">{{headerText}}</h1>
+
+        <button ng-click="validate()" class="button button-positive button-icon ion-checkmark"></button>
+
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+
+
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" id="search" name="search" ng-model="search" ng-keyup="buscar(search)" placeholder="Buscar ...">
+            </label>
+            <!-- Multi select -->
+            <ion-toggle
+                        ng-repeat="item in items | unique: 'id' | filter:search "
+                        ng-if="multiSelect"
+                        ng-checked="item.checked"
+                        ng-model="item.checked"
+                        class="item item-text-wrap">
+                {{item.id}} - {{item.text}}
+            </ion-toggle>
+
+            <!-- Single select -->
+            <ion-item
+                   ng-repeat="item in items | unique: 'id' | filter:search"
+                   ng-if="!multiSelect"
+                   class="item item-text-wrap"
+                   ng-click='validateSingle(item)'>
+                {{item.id}} - {{item.text}} 
+            </ion-item>
+        </ion-list>
+        
+        <ion-infinite-scroll ng-if="visivel && !search && items.length > 15" spinner on-infinite="loadMore()" distance="5%">
+
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

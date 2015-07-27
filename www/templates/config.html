@@ -1,0 +1,56 @@
+<ion-view view-title="Configuracion" name="config">
+    
+        <div class="bar bar-loading bar-assertive" ng-if="data.liberaError">
+      {{ msgError }}
+    </div>  
+    
+    <div class="bar bar-loading bar-balanced" ng-if="data.liberaSuccess">
+      {{ msgSuccess }}
+    </div>  
+             <ion-nav-buttons side="left">
+              <button class="button button-icon icon ion-arrow-left-b" ng-click="doTheBack()"> Voltar</button>
+            </ion-nav-buttons>  
+    <ion-content class="padding">
+        <form id="formConfig" name="formConfig" ng-submit="salvaConfig()" novalidate >
+            
+            <div class="list list-inset">
+  
+                
+              <label class="item item-input item-stacked-label">
+                  <span class="input-label"><b>Porta</b></span>
+                <input type="number" id="porta" name="porta" placeholder="Numero da Porta" ng-model="config.porta" required />
+               <small ng-show="formConfig.porta.$error.required" class="error-message">* Este campo é obrigatorio</small>
+                  <small ng-show="formConfig.porta.$error.number" class="error-message">* Apenas Numero</small>  
+              </label> 
+                
+            
+               <label class="item item-input item-stacked-label">
+                  <span class="input-label"><b>Caminho do Servidor</b></span>
+                <input type="text" id="caminho" name="caminho" placeholder="Caminho do Servidor" ng-model="config.caminho" required />
+               <small ng-show="formConfig.caminho.$error.required" class="error-message">* Este campo é obrigatorio</small>
+              </label>    
+                
+                <label class="item item-input item-stacked-label">
+                  <span class="input-label"><b>Diretorio StarWeb</b></span>
+                <input type="text" id="diretorio" name="diretorio" placeholder="Diretorio Starweb" ng-model="config.diretorio" required />
+               <small ng-show="formConfig.diretorio.$error.required" class="error-message">* Este campo é obrigatorio</small>
+              </label>   
+                
+                <label class="item item-input item-stacked-label">
+                  <span class="input-label"><b>N° Pedido Inicial</b></span>
+                <input type="number" id="npedido" name="npedido" placeholder="Diretorio Starweb" ng-model="config.npedido" required />
+               <small ng-show="formConfig.npedido.$error.required" class="error-message">* Este campo é obrigatorio</small>
+                <small ng-show="formConfig.npedido.$error.number" class="error-message">* Apenas Numero</small>  
+              </label>     
+                
+                
+                
+            </div>
+              <button type="submit" ng-disabled="formConfig.$invalid" class="button button-block button-positive" >
+                  Salvar Config
+                </button>
+            
+        </form>
+
+    </ion-content>
+</ion-view>

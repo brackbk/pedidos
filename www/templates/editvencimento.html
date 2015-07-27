@@ -1,0 +1,66 @@
+<ion-modal-view>
+    <form id="formV" name="formV" novalidate >
+        <ion-header-bar class="bar bar-header bar-positive">
+            <h1 class="title">Adcionar Vencimento</h1>
+            <a class="button button-clear button-primary" ng-click="modal.hide()">Cancelar</a>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list list-inset">
+
+                <div class="item item-input row">
+                    <div class="col">
+                        <label>
+                            <span class="input-label"><b>Cuotas</b></span>
+                            <input type="number" id="cuotas" name="cuotas" placeholder="Informe a Cuotas" ng-model="vencimento.id" required readonly />
+                            <small ng-show="formV.cuotas.$error.required" class="error-message">* Este campo é obrigatorio</small>
+                            <small ng-show="formV.cuotas.$error.number" class="error-message">* Apenas Numero</small>  
+                        </label> 
+                    </div>
+                    <div class="col">
+                        <label>
+                            <span class="input-label"><b>Valor da Cuota</b></span>
+                            <input type="text" id="valor" name="valor" placeholder="Unidade do iten" ng-model="vencimento.valor" required ui-number-mask="3">  
+                            <small ng-show="form.val_un.$error.required" class="error-message">* Este campo é obrigatorio</small> 
+                            <small ng-show="formData.total < vencimento.valor" class="error-message">* O valor não pode ser maior que o valor total dos itens</small>
+                        </label>
+                    </div>
+                </div>
+                <div class="item item-input row">
+                    <div class="col">
+                        <label >
+                            <span class="input-label"><b>Fecha Vcto</b></span>
+                            <input type="date" name="data" id="data" placeholder="Fecha de Vencimento" ng-model="vencimento.data" required />
+
+                            <small ng-show="formV.datapedido.$error.required" class="error-message">* Este campo é obrigatorio</small>
+                        </label> 
+                    </div>
+                    <div class="col">    
+                        <label >
+                            <span class="input-label"><b>Prazo</b></span>
+                            <input type="number" id="prazo" name="prazo" value="30" placeholder="Prazo dias" ng-model="vencimento.prazo" required />
+                            <small ng-show="formV.prazo.$error.required" class="error-message">* Este campo é obrigatorio</small>
+                            <small ng-show="formV.prazo.$error.number" class="error-message">* Apenas Numero</small>  
+                        </label> 
+                    </div>
+
+                </div>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Entrada
+                    </div>
+                    <select id="entrada" name="entrada" ng-model="vencimento.entrada" required>
+                        <option value="si" ng-selected="selected">Si</option>
+                        <option value="no" selected>No</option>
+                    </select>
+
+                    <small ng-show="formV.entrada.$error.required" class="error-message">* Este campo é obrigatorio</small>
+                </label>
+            </div>
+        </ion-content>
+        <div class="bar bar-footer bar-positive footer-button">
+            <button class="button button-full button-clear" ng-disabled="formV.$invalid || formData.total < vencimento.valor"  ng-click="formV.$invalid?'':altVencimento(vencimento)">
+                Salvar Vencimento
+            </button>
+        </div>
+    </form>
+</ion-modal-view>

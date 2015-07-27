@@ -1,0 +1,21 @@
+<ion-view view-title="{{titulo}}" name="inserir-pedidos-dados" >
+             <ion-nav-buttons side="left">
+              <button class="button button-icon icon ion-gear-a" ui-sref="config"> Config</button>
+            </ion-nav-buttons>
+          
+     <ion-content>  
+         
+        <form id="form" name="form" novalidate >
+                       <div id="status-buttons" class="text-center">
+                <a ui-sref-active="active" eat-click-if="form.$invalid || formData.moneda == 0 || formData.parcero == 0 || formData.localparcero == 0 || formData.destino == 0"  ui-sref=".dados"><span>1</span> Dados</a>
+                <a ui-sref-active="active" eat-click-if="form.$invalid || formData.moneda == 0 || formData.parcero == 0 || formData.localparcero == 0 || formData.destino == 0" ui-sref=".itens"><span>2</span> Itens</a>
+                <a ui-sref-active="active" eat-click-if="formData.produtos.length == 0" ui-sref=".vencimento"><span>3</span> Vencimento</a>
+            <a ui-sref-active="active" eat-click-if="formData.produtos.length == 0" ui-sref=".lucro"><span>4</span>   A.Ventas</a>
+            </div>
+            <!-- our nested state views will be injected here -->
+            <div ng-show="error" class="alert alert-danger">{{error}}</div>
+           <div id="form-views"  ui-view=></div>
+        </form> 
+          
+    </ion-content>
+</ion-view>

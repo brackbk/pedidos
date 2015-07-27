@@ -1,0 +1,43 @@
+
+<button type="button" ng-hide="!formData.vencimento.length || formData.cuotas == 0" ng-click="tipo=='i'?SetPedido(formData):AlterarPedido(formData)"  class="button button-block button-positive" >
+    {{tipo=='i'?"Inserir Pedido":"Alterar Pedido"}}
+</button>        
+
+<ion-list class="list list-inset">
+
+
+
+    <div class="item item-input row">
+            <div class="col">
+        <span class="input-label"><b>Cuota</b></span>
+        <input type="number" name="cuotas" id="cuotas" placeholder="Cuotas de Vencimento" ng-model="formData.cuotas" required />
+        <small ng-show="form.datapedido.$error.required" class="error-message">* Este campo é obrigatorio</small>
+        </div>
+        <div class="col">
+            <label >
+                <span class="input-label"><b>Total Itens</b></span>
+                <p>{{formData.total}}</p> 
+            </label> 
+        </div>
+
+        <div class="col">
+            <label >
+                <span class="input-label"><b>Total Venc.</b></span>
+                <p >{{calcTotal()}}</p> 
+            </label> 
+        </div>        
+    </div>
+
+
+    <button type="button" class="button button-block button-positive" ng-disabled="formData.cuotas == 0" ng-hide="formData.vencimento.length > 0"  ng-click="cadVencimento(formData.cuotas)">
+        Confirmar
+    </button>
+
+
+
+    <ion-item class="item item-icon-left item-icon-right"  ng-repeat="vencimento in formData.vencimento"> 
+        <i class="icon ion-edit" ng-click="abrir(vencimento)" ></i>
+        {{vencimento.id}} - {{vencimento.data | date:'dd/MM/yyyy'}} - Pra/ {{vencimento.prazo}} ({{vencimento.valor | number : 2}}) {{vencimento.entrada =="si"?' - Entrada':''}}
+        <i class="icon ion-trash-a" ng-click="tipo=='i'?delete(vencimento):deleteAlt(vencimento)" ></i>
+    </ion-item>
+</ion-list>

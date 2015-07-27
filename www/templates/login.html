@@ -1,0 +1,38 @@
+<ion-view view-title="Login Pedidos" name="login">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-gear-a" ui-sref="config"> Config</button>
+    </ion-nav-buttons> 
+    <ion-content>
+        
+        <form name="form" ng-submit="login()" role="form">
+            <div ng-show="error" class="item item-text-wrap" style="background:#C80000; color:#fff;">{{error}}</div>
+            <div ng-show="sucesso" class="item item-text-wrap item-balanced">{{sucesso}}</div>
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Usuario</span>
+                    <input type="text" name="usuario" id="usuario" placeholder="Usuario" ng-model="data.usuario" required />
+                <small ng-show="form.usuario.$dirty && form.usuario.$error.required" class="error-message">O usuario é obrigatorio</small>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Senha</span>
+                    <input type="password"  placeholder="Senha" name="senha" id="senha" ng-model="data.senha" required />
+
+                <small ng-show="form.senha.$dirty && form.senha.$error.required" class="error-message">Senha é obrigatoria</small>
+                </label>
+
+            </div>
+            <div class="padding">
+                <button type="submit" ng-disabled="form.$invalid" class="button button-block button-positive">Login</button>
+                <button class="button button-block button-balanced" type="button" ng-click="importar(data)">
+                    Importar Dados
+                </button>
+                <button class="button button-block button-positive" type="button" ng-click="abreGestor()">
+   
+                   Sistema de Gestion
+                </a>
+
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
